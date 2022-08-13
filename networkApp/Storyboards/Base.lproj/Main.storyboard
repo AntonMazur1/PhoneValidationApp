@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jim-gg-4A1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Number Info-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="networkApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ma0-zQ-YTx">
+                                <rect key="frame" x="103.5" y="218" width="207" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leT-7x-ogX">
+                                <rect key="frame" x="145" y="761" width="124" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Check">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="getInfoAboutNumber" destination="BYZ-38-t0r" eventType="touchUpInside" id="rna-rw-pWB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ieD-bk-Vs0">
+                                <rect key="frame" x="72" y="322" width="270" height="252"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ieD-bk-Vs0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.28125" id="D5b-jG-wb8"/>
+                            <constraint firstItem="Ma0-zQ-YTx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DyB-65-fNy"/>
+                            <constraint firstItem="ieD-bk-Vs0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.652174" id="LFx-n1-XfE"/>
+                            <constraint firstItem="ieD-bk-Vs0" firstAttribute="top" secondItem="Ma0-zQ-YTx" secondAttribute="bottom" constant="70" id="Tnl-oH-5eS"/>
+                            <constraint firstItem="leT-7x-ogX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="Vf9-k6-tq1"/>
+                            <constraint firstItem="ieD-bk-Vs0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W2k-nT-xxT"/>
+                            <constraint firstItem="ieD-bk-Vs0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YGF-9u-YoR"/>
+                            <constraint firstItem="leT-7x-ogX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a0e-X1-fp8"/>
+                            <constraint firstItem="Ma0-zQ-YTx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="gbW-br-Owz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="leT-7x-ogX" secondAttribute="bottom" constant="70" id="lw1-yh-XtM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Number Info" id="sFJ-Pf-DEa"/>
+                    <connections>
+                        <outlet property="checkButton" destination="leT-7x-ogX" id="scR-TM-1Av"/>
+                        <outlet property="infoLabel" destination="ieD-bk-Vs0" id="zjd-pB-mzJ"/>
+                        <outlet property="numberTextField" destination="Ma0-zQ-YTx" id="ris-qY-0Nk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023.1884057971015" y="66.964285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KnE-Na-WmH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jim-gg-4A1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Uqy-tE-lsA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1xK-Ae-hzp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6A2-ny-DgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="67"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
