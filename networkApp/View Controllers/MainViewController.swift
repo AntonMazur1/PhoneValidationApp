@@ -27,30 +27,36 @@ class MainViewController: UIViewController {
         guard let number = numberTextField.text else { return }
         let url = "https://phonevalidation.abstractapi.com/v1/?api_key=e695a2561b2e481890476de400cec663&phone=\(number.trimmingCharacters(in: .whitespaces))"
         
-        NetworkManager.shared.getphoneInfo(from: url) { [weak self] phoneInfo in
-            if phoneInfo.valid {
-                self?.infoLabel.text =
-                    """
-                    Phone: \(phoneInfo.phone)
-                    Type: \(phoneInfo.type)
-                    Carrier: \(phoneInfo.carrier)
-                    Country name: \(phoneInfo.country.name)
-                    Country prefix: \(phoneInfo.country.prefix)
-                    Country code: \(phoneInfo.country.code)
-                    Location: \(phoneInfo.location)
-                    International format: \(phoneInfo.format.international)
-                    Local format: \(phoneInfo.format.local)
-                    Valid: \(phoneInfo.valid ? "Yes" : "No")
-                    """
-            } else {
-                self?.infoLabel.text =
-                     """
-                    Something went wrong!
-                    
-                    Please, check your number and try again
-                    """
+        
+        NetworkManager.shared.getInfoAboutPhone(from: url) { [weak self] result in
+            switch result {
+            case .success(let phoneInfo):
+                self?.infoLabel.isHidden = false
+                if phoneInfo.valid {
+                    self?.infoLabel.text =
+                                    """
+                                    Phone: \(phoneInfo.phone)
+                                    Type: \(phoneInfo.type)
+                                    Carrier: \(phoneInfo.carrier)
+                                    Country name: \(phoneInfo.country.name ?? "")
+                                    Country prefix: \(phoneInfo.country.prefix ?? "")
+                                    Country code: \(phoneInfo.country.code ?? "")
+                                    Location: \(phoneInfo.location)
+                                    International format: \(phoneInfo.format.international ?? "")
+                                    Local format: \(phoneInfo.format.local ?? "")
+                                    Valid: \(phoneInfo.valid ? "Yes" : "No")
+                                    """
+                } else {
+                    self?.infoLabel.text =
+                                    """
+                                    Something went wrong!
+                                    
+                                    Please, check your number and try again
+                                    """
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            self?.infoLabel.isHidden = false
         }
     }
 }
